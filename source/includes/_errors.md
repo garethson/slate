@@ -1,20 +1,35 @@
 # Errors
+> Errors are structured in the following format:
 
-<aside class="notice">This error section is stored in a separate file in `includes/_errors.md`. Slate allows you to optionally separate out your docs into many files...just save them to the `includes` folder and add them to the top of your `index.md`'s frontmatter. Files are included in the order listed.</aside>
+```json
+{
+  "errors": [
+    {
+      "error_code": "installments_required",
+      "error_message": "Installments value must be at least 1."
+    },
+    {
+      "error_code": "process_date_timing",
+      "error_message": "Process date must be at least 2 business days in the future."
+    }
+  ]
+}
+```
 
-The Kittn API uses the following error codes:
+### Error format
+Errors are returned from Rotessa in the for of a list of values in the `errors` key of response.
+Each error has an `error_code` and `error_message`, corresponding to the type of error that has occurred.
+### HTTP Response codes
+
+The Rotessa API uses the following http error codes:
 
 
 Error Code | Meaning
 ---------- | -------
-400 | Bad Request -- Your request sucks
-401 | Unauthorized -- Your API key is wrong
-403 | Forbidden -- The kitten requested is hidden for administrators only
-404 | Not Found -- The specified kitten could not be found
-405 | Method Not Allowed -- You tried to access a kitten with an invalid method
+400 | Bad Request -- Your request includes invalid parameters
+401 | Unauthorized -- Your API key is not valid or is missing
+404 | Not Found -- The specified resource could not be found
 406 | Not Acceptable -- You requested a format that isn't json
-410 | Gone -- The kitten requested has been removed from our servers
-418 | I'm a teapot
-429 | Too Many Requests -- You're requesting too many kittens! Slow down!
-500 | Internal Server Error -- We had a problem with our server. Try again later.
+422 | Unprocessable Entity -- Your request results in invalid data.
+500 | Internal Server Error -- Rotessa system cannot process your request. Try again later.
 503 | Service Unavailable -- We're temporarially offline for maintanance. Please try again later.
