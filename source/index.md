@@ -17,9 +17,9 @@ search: true
 
 # Introduction
 
-You can use the Rotessa API to access Rotessa API endpoints, which allows you to manage customers and transactions in the Rotessa system.
+The Rotessa API allows access to the core Rotessa platform. The endpoints allow you to manage customers and transactions in the Rotessa system.
 
-We have language bindings for Shell and Ruby, you can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.
+You can view code examples on the right.
 
 # Authentication
 
