@@ -10,6 +10,7 @@ toc_footers:
 includes:
   - customers
   - transaction_schedules
+  - transaction_report
   - errors
 
 search: true
@@ -23,6 +24,10 @@ You can view code examples on the right.
 
 # Authentication
 
+Rotessa uses API keys to allow access to the API. API keys are unique tokens used by the API, placed in the request header that grant access to your Rotessa resources.
+
+## Generate an API key
+
 > To authorize, use this code:
 
 
@@ -34,7 +39,16 @@ curl "rotessa_endpoint"
 
 > Make sure to replace `your_api_key` with your API key.
 
-Rotessa uses API keys to allow access to the API. You can acquire an API key by logging in to Roessa and generating a new API key under API Keys.
+
+Access the API Keys from your Rotessa admin portal:
+<a href=images/api_keys_1.png>
+  <img src="images/api_keys_1.png" alt="Screenshot of Example Documentation created with Slate">
+</a>
+
+Existing API keys can be revoked and generated. Click Create API Key:
+<a href=images/api_keys_2.png>
+  <img src="images/api_keys_2.png" alt="Screenshot of Example Documentation created with Slate">
+</a>
 
 Rotessa expects for the API key to be included in all API requests to the server in a header that looks like the following:
 

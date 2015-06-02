@@ -1,5 +1,7 @@
 # Customers
 
+Customers represent individual customer accounts from which you which to withdraw funds.
+
 ## Get All Customers
 
 
@@ -145,3 +147,63 @@ This endpoint retrieves a specific customer.
 Parameter | Description
 --------- | -----------
 ID | The ID of the customer to retrieve
+
+## Create A Customer
+
+```shell
+curl -X POST \
+     -H 'Content-Type: application/json' \
+     -H 'Authorization: Token token="sS0md0PLYj9sgQ6RJgN1nQ"' \
+     -d '{"custom_identifier": "asdf1234", "email": "test@rotessa.com", "name": "Mike Smith", "bank_name": "Scotiabank", "transit_number": "12345", "institution_number": "123", "account_number": "12345678", "address": { "address_1": "123 Main Street", "address_2": "Unit 4", "city": "Toronto", "province_code": "ON", "postal_code": "M1B 0B7" }}' \
+     http://api.rotessa.com/v1/customers.json
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "response": {
+    "name": "Mike Smith",
+    "identifier": "MIKESMIT0001",
+    "email": "test@rotessa.com",
+    "home_phone": null,
+    "cell_phone": null,
+    "bank_name": "Scotiabank",
+    "created_at": "2015-05-18T12:23:58.739-05:00",
+    "updated_at": "2015-05-18T12:23:58.739-05:00",
+    "custom_identifier": "asdf1234",
+    "active": true,
+    "address": {
+          "address_1": "123 Main Street",
+          "address_2": "Unit 4",
+          "city": "Toronto",
+          "province_code": "ON",
+          "postal_code": "M1B 0B7"
+    },
+    "transaction_schedules": [],
+    "financial_transactions": []
+  }
+}
+```
+
+This endpoint creates a new customer
+
+### HTTP Request
+
+`POST https://api.rotessa.com/v1/customers`
+
+### Post Parameters
+
+Parameter | Default | Description
+--------- | ------- | -----------
+name | - | Full name of customer
+custom_identifier | - | Your own customer identifier. Must be unique.
+email | - | Email address
+home_phone | - | Home phone number
+cell_phone | - | Cell phone number
+bank_name | - | Bank name of customer
+institution_number | - | Bank institution number
+transit_number | - | Bank transit number
+account_number | - | Bank account number
+address | - | Customer address parameters.
+
