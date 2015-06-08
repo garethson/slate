@@ -2,6 +2,22 @@
 
 Customers represent individual customer accounts from which you which to withdraw funds.
 
+Field | Description
+--------- | -----------
+id | ID of the customer.
+custom_identifier | Your own unique customer identifier.
+name | Full name of customer.
+email | Customer email address.
+home_phone | Home phone number.
+cell_phone |  Cell phone number.
+bank_name | Bank name.
+institution_number | Bank institution number.
+transit_number | Bank transit number.
+account_number | Bank account number.
+address | Customer address.
+transaction_schedules | A list of transaction schedule objects describing the customer's payment schedules.
+financial_transactions | A list of financial transactions that have occurred for a customer.
+
 ## Get All Customers
 
 

@@ -1,6 +1,6 @@
 # Transaction Report
 
-The transaction report endpoint is the main interface by which your system can determine the current state of payments processed by Rotessa.
+The transaction report endpoint is the main interface by which your system can determine the current state of payments processed by Rotessa. The transaction report is limited to transcations 3 years into the futre or 1000 transactions, whichever comes first.
 
 ## Show Transaction Report
 The endpoint provides 3 parameters which can be queried.
@@ -61,7 +61,7 @@ curl -X GET \
 
 ### HTTP Request
 
-`POST https://api.rotessa.com/v1/transaction_schedules`
+`POST https://api.rotessa.com/v1/transaction_report`
 
 
 Parameter | Description
