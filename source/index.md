@@ -30,6 +30,9 @@ The Rotessa API allows access to the core Rotessa platform. The endpoints allow 
 
 Rotessa uses API keys to allow access to the API. API keys are unique tokens used by the API, placed in the request header that grant access to your Rotessa resources.
 
+The Rotessa APi is located at <a href="https://api.rotessa.com/v1/">api.rotessa.com/v1</a>. The URL for our test environment is <a href="https://sandbox-api.rotessa.com/v1/">sandbox-api.rotessa.com/v1</a>. Access to the test environment can be granted by signing up at <a href="https://sandbox.rotessa.com">sandbox.rotessa.com</a>
+
+
 ## Generate an API key
 
 > To authorize, use this code:
