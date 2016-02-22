@@ -30,10 +30,10 @@ Transaction schedules have an optional installments parameter that allow you to 
 ## Create A Transaction Schedule
 
 ```shell
-curl -X POST \
-     -H 'Content-Type: application/json' \
-     -H 'Authorization: Token token="sS0md0PLYj9sgQ6RJgN1nQ"' \
-     -d '{"transaction_schedule": {"customer_id":1, "amount":100, "frequency":"Monthly", "process_date": "May 24, 2015", "comment":"Membership fees"}}' \
+
+curl -X POST -H 'Content-Type: application/json' \ 
+     -H "Authorization: Token token="sS0md0PLYj9sgQ6RJgN1nQ"" \
+     -d '{"customer_id":22511, "amount": 100, "frequency": "Monthly", "process_date": "May 24, 2016", "comment": "Membership fees"}' \
      https://client.rotessa.com/v1/transaction_schedules.json
 ```
 
