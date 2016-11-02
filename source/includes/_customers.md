@@ -8,6 +8,7 @@ id | ID of the customer.
 custom_identifier | Your own unique customer identifier.
 name | Full name of customer.
 email | Customer email address.
+customer_type | Personal or Business
 home_phone | Home phone number.
 cell_phone |  Cell phone number.
 bank_name | Bank name.
@@ -36,6 +37,7 @@ curl "http://api.rotessa.com/api/customers"
       "name": "Mike Smith",
       "identifier": "MikeSmith0001",
       "email": "mikesmith@test.com",
+      "customer_type": "Personal",
       "home_phone": "(204) 555 5555",
       "cell_phone": "(204) 555 4444",
       "bank_name": "Scotiabank",
@@ -56,6 +58,7 @@ curl "http://api.rotessa.com/api/customers"
       "name": "Susan Johnson",
       "identifier": "SUSANJO0002",
       "email": "susan@test.com",
+      "customer_type": "Business",
       "home_phone": "(204) 111 4321",
       "cell_phone": "(204) 111 1234",
       "bank_name": "Royal Bank",
@@ -169,8 +172,8 @@ ID | The ID of the customer to retrieve
 ```shell
 curl -X POST \
      -H 'Content-Type: application/json' \
-     -H 'Authorization: Token token="sS0md0PLYj9sgQ6RJgN1nQ"' \
-     -d '{"custom_identifier": "asdf1234", "email": "test@rotessa.com", "name": "Mike Smith", "bank_name": "Scotiabank", "transit_number": "12345", "institution_number": "123", "account_number": "12345678", "address": { "address_1": "123 Main Street", "address_2": "Unit 4", "city": "Toronto", "province_code": "ON", "postal_code": "M1B 0B7" }}' \
+     -H 'Authorization: Token token=\"your_api_key\"' \
+     -d '{"custom_identifier": "asdf1234", "email": "test@rotessa.com", "name": "Mike Smith", "customer_type": "Personal", "bank_name": "Scotiabank", "transit_number": "12345", "institution_number": "123", "account_number": "12345678", "address": { "address_1": "123 Main Street", "address_2": "Unit 4", "city": "Toronto", "province_code": "ON", "postal_code": "M1B 0B7" }}' \
      http://api.rotessa.com/v1/customers.json
 ```
 
@@ -182,6 +185,7 @@ curl -X POST \
     "name": "Mike Smith",
     "identifier": "MIKESMIT0001",
     "email": "test@rotessa.com",
+    "customer_type": "Personal",
     "home_phone": null,
     "cell_phone": null,
     "bank_name": "Scotiabank",
@@ -222,4 +226,54 @@ institution_number | - | Bank institution number
 transit_number | - | Bank transit number
 account_number | - | Bank account number
 address | - | Customer address parameters.
+
+## Update A Customer
+
+```shell
+curl -X PATCH -H 'Content-Type: application/json' \
+     -H "Authorization: Token token=\"your_api_key\"" \
+     -d '{"custom_identifier": "MIKEY", "email": "test@rotessa.com", "name": "Mike Smith", "bank_name": "TD", "transit_number": "54321", "institution_number": "321", "account_number": "87654321", "address": { "address_1": "321 First Street", "address_2": "Unit 5", "city": "Winnipeg", "province_code": "MB", "postal_code": "M1B 0B7" }}' \
+      https://client.rotessa.com/v1/customers/1.json
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "response": {
+    "name": "Mike Smith",
+    "identifier": "MIKEY",
+    "email": "test@rotessa.com",
+    "customer_type": "Personal",
+    "home_phone": null,
+    "cell_phone": null,
+    "bank_name": "TD",
+    "created_at": "2015-05-18T12:23:58.739-05:00",
+    "updated_at": "2015-05-18T12:23:58.739-05:00",
+    "custom_identifier": "asdf1234",
+    "active": true,
+    "address": {
+          "address_1": "321 First Street",
+          "address_2": "Unit 5",
+          "city": "Winnipeg",
+          "province_code": "MB",
+          "postal_code": "M1B 0B7"
+    },
+    "transaction_schedules": [],
+    "financial_transactions": []
+  }
+}
+```
+
+This endpoint creates a new customer
+
+### HTTP Request
+
+`POST https://api.rotessa.com/v1/customers`
+
+### PATCH Parameters
+
+Parameter | Description
+--------- | -----------
+ID | The ID of the customer to retrieve
 

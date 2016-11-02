@@ -10,7 +10,7 @@ The endpoint provides 3 parameters which can be queried.
 curl -X GET \
      -H 'Content-Type: application/json' \
      -H 'Authorization: Token token="sS0md0PLYj9sgQ6RJgN1nQ"' \
-     -d '{{"start_date":'2015-05-12', "end_date":"2015-06-12", "filter":"All"}' \
+     -d '{{"start_date":'2017-05-12', "end_date":"2017-06-12", "filter":"All"}' \
      https://client.rotessa.com/v1/transaction_report.json
 ```
 
@@ -20,6 +20,9 @@ curl -X GET \
 {
   "response": [
     {
+      "id": 123456,
+      "customer_id": 1,
+      "custom_identifier": "Mikey"
       "amount": "120.00",
       "process_date": "2015-05-12",
       "status": "Pending",
@@ -29,6 +32,9 @@ curl -X GET \
       "updated_at": "2015-05-12T23:04:00.000-05:00"
     },
     {
+      "id": 123457,
+      "customer_id": 1,
+      "custom_identifier": "Mikey"
       "amount": "120.00",
       "process_date": "2015-05-19",
       "status": "Approved",
@@ -38,6 +44,9 @@ curl -X GET \
       "updated_at": "2015-05-28T23:40:57.000-05:00"
     },
     {
+      "id": 123458,
+      "customer_id": 1,
+      "custom_identifier": "Mikey"
       "amount": "120.00",
       "process_date": "2015-06-02",
       "status": "Future",
@@ -47,6 +56,9 @@ curl -X GET \
       "updated_at": null
     },
     {
+      "id": 123459,
+      "customer_id": 1,
+      "custom_identifier": "Mikey"
       "amount": "120.00",
       "process_date": "2015-06-09",
       "status": "Future",
