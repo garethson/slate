@@ -23,7 +23,7 @@ financial_transactions | A list of financial transactions that have occurred for
 
 
 ```shell
-curl "http://api.rotessa.com/api/customers"
+curl "http://api.rotessa.com/api/customers.json"
   -H "Authorization: Token token=\"your_api_key\""
 ```
 
