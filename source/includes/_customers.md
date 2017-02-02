@@ -12,9 +12,9 @@ customer_type | Personal or Business
 home_phone | Home phone number.
 cell_phone |  Cell phone number.
 bank_name | Bank name.
-institution_number | Bank institution number.
-transit_number | Bank transit number.
-account_number | Bank account number.
+institution | Bank institution number.
+transit | Bank transit number.
+account | Bank account number.
 address | Customer address.
 transaction_schedules | A list of transaction schedule objects describing the customer's payment schedules.
 financial_transactions | A list of financial transactions that have occurred for a customer.
@@ -173,7 +173,7 @@ ID | The ID of the customer to retrieve
 curl -X POST \
      -H 'Content-Type: application/json' \
      -H 'Authorization: Token token=\"your_api_key\"' \
-     -d '{"custom_identifier": "asdf1234", "email": "test@rotessa.com", "name": "Mike Smith", "customer_type": "Personal", "bank_name": "Scotiabank", "transit_number": "12345", "institution_number": "123", "account_number": "12345678", "address": { "address_1": "123 Main Street", "address_2": "Unit 4", "city": "Toronto", "province_code": "ON", "postal_code": "M1B 0B7" }}' \
+     -d '{"custom_identifier": "asdf1234", "email": "test@rotessa.com", "name": "Mike Smith", "customer_type": "Personal", "bank_name": "Scotiabank", "transit": "12345", "institution": "123", "account": "12345678", "address": { "address_1": "123 Main Street", "address_2": "Unit 4", "city": "Toronto", "province_code": "ON", "postal_code": "M1B 0B7" }}' \
      http://api.rotessa.com/v1/customers.json
 ```
 
@@ -222,9 +222,9 @@ email | - | Email address
 home_phone | - | Home phone number
 cell_phone | - | Cell phone number
 bank_name | - | Bank name of customer
-institution_number | - | Bank institution number
-transit_number | - | Bank transit number
-account_number | - | Bank account number
+institution | - | Bank institution number
+transit | - | Bank transit number
+account | - | Bank account number
 address | - | Customer address parameters.
 
 ## Update A Customer
@@ -232,7 +232,7 @@ address | - | Customer address parameters.
 ```shell
 curl -X PATCH -H 'Content-Type: application/json' \
      -H "Authorization: Token token=\"your_api_key\"" \
-     -d '{"custom_identifier": "MIKEY", "email": "test@rotessa.com", "name": "Mike Smith", "bank_name": "TD", "transit_number": "54321", "institution_number": "321", "account_number": "87654321", "address": { "address_1": "321 First Street", "address_2": "Unit 5", "city": "Winnipeg", "province_code": "MB", "postal_code": "M1B 0B7" }}' \
+     -d '{"custom_identifier": "MIKEY", "email": "test@rotessa.com", "name": "Mike Smith", "bank_name": "TD", "transit": "54321", "institution": "321", "account": "87654321", "address": { "address_1": "321 First Street", "address_2": "Unit 5", "city": "Winnipeg", "province_code": "MB", "postal_code": "M1B 0B7" }}' \
       https://client.rotessa.com/v1/customers/1.json
 ```
 
