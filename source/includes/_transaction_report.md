@@ -7,11 +7,7 @@ The endpoint provides 3 parameters which can be queried.
 
 
 ```shell
-curl -X GET \
-     -H 'Content-Type: application/json' \
-     -H 'Authorization: Token token="sS0md0PLYj9sgQ6RJgN1nQ"' \
-     -d '{{"start_date":'2017-05-12', "end_date":"2017-06-12", "filter":"All"}' \
-     https://client.rotessa.com/v1/transaction_report.json
+curl -X GET -H 'Content-Type: application/json' -H "Authorization: Token token=\"<api_key>\"" -d '{"start_date":"2016-09-12", "end_date":"2016-11-12", "filter":"All"}' <rotessa_endpoint>/transaction_report.json | python -m json.tool 
 ```
 
 > The above command returns JSON structured like this:

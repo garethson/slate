@@ -30,7 +30,9 @@ The Rotessa API allows access to the core Rotessa platform. The endpoints allow 
 
 Rotessa uses API keys to allow access to the API. API keys are unique tokens used by the API, placed in the request header that grant access to your Rotessa resources.
 
-The Rotessa APi is located at <a href="https://api.rotessa.com/v1/">api.rotessa.com/v1</a>. The URL for our test environment is <a href="https://sandbox-api.rotessa.com/v1/">sandbox-api.rotessa.com/v1</a>. Access to the test environment can be granted by signing up at <a href="https://sandbox.rotessa.com">sandbox.rotessa.com</a>
+The Rotessa APi is located at <a href="https://api.rotessa.com/v1/">https://api.rotessa.com/v1</a>. The URL for our test environment is <a href="https://sandbox-api.rotessa.com/v1/">https://sandbox-api.rotessa.com/v1</a>. 
+
+Access to the test environment can be granted by signing up at <a href="https://sandbox.rotessa.com">sandbox.rotessa.com</a>. Once signed up, email <a href="mailto:support@rotessa.com?Subject=Requiring%20an%20API%20Key%20For%20Sandbox" target="_top">support@rotessa.com</a> with your username to get your sandbox account approved and to gain access to the API.
 
 
 ## Generate an API key
@@ -40,8 +42,7 @@ The Rotessa APi is located at <a href="https://api.rotessa.com/v1/">api.rotessa.
 
 ```shell
 # With shell, you can just pass the correct header with each request
-curl "rotessa_endpoint"
-  -H "Authorization: Token token=\"your_api_key\""
+curl "<rotessa_endpoint>/customers.json" -H "Authorization: Token token=\"<api_key>\""
 ```
 
 > Make sure to replace `your_api_key` with your API key.

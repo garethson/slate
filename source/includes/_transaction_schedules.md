@@ -30,10 +30,7 @@ Transaction schedules have an optional installments parameter that allow you to 
 ## Get A Specific Transaction Schedule
 
 ```shell
-
-curl " https://client.rotessa.com/v1/transaction_schedules/<ID>.json" 
-  -H 'Authorization: Token token=\"your_api_key\"'
-
+curl "<rotessa_endpoint>/transaction_schedules/<id>.json" -H "Authorization: Token token=\"<api_key>\""
 ```
 
 > The above command returns JSON structured like this:
@@ -59,7 +56,7 @@ This endpoint creates a transaction schedule for a customer.
 
 ### HTTP Request
 
-`GET http://client.rotessa.com/api/customers/<ID>.json
+`GET https://api.rotessa.com/v1//customers/<ID>.json
 `
 
 ### URL Parameters
@@ -72,11 +69,7 @@ ID | The ID of the transaction schedule to retrieve
 ## Create A Transaction Schedule
 
 ```shell
-
-curl -X POST -H 'Content-Type: application/json' \ 
-     -H 'Authorization: Token token=\"your_api_key\"' \
-     -d '{"customer_id":22511, "amount": 100, "frequency": "Monthly", "process_date": "May 24, 2016", "comment": "Membership fees"}' \
-     https://client.rotessa.com/v1/transaction_schedules.json
+curl -X POST -H 'Content-Type: application/json' -H "Authorization: Token token=\"<api_key>\""  -d '{"customer_id":45079, "amount": 100, "frequency": "Monthly", "process_date": "November 24, 2017", "comment": "Membership fees"}' <rotessa_endpoint>/transaction_schedules.json
 ```
 
 > The above command returns JSON structured like this:
@@ -86,7 +79,7 @@ curl -X POST -H 'Content-Type: application/json' \
   "response": {
     "amount": "100.00",
     "frequency": "Monthly",
-    "process_date": "2015-05-24",
+    "process_date": "2017-11-24",
     "installments": null,
     "comment": "Membership fees",
     "next_process_date": "2015-05-24",
@@ -122,12 +115,7 @@ When creating schedules you must specify a process date of at least 2 business d
 ## Update A Specific Transaction Schedule
 
 ```shell
-
-curl -X PATCH -H 'Content-Type: application/json' \
-     -H 'Authorization: Token token=\"your_api_key\"' \
-     -d '{"amount": 150, "comment": "Membership fees", "active":1 }' \
-     https://client.rotessa.com/v1/transaction_schedules/<ID>.json
-
+curl -X PATCH -H 'Content-Type: application/json' -H "Authorization: Token token=\"<api_key>\"" -d '{"amount": 150, "comment": "New Membership fees"}' <rotessa_endpoint>/transaction_schedules/<id>.json
 ```
 
 > The above command returns JSON structured like this:
@@ -140,10 +128,10 @@ curl -X PATCH -H 'Content-Type: application/json' \
     "frequency": "Monthly",
     "process_date": "2017-05-24",
     "installments": null,
-    "comment": "Membership fees",
+    "comment": "New Membership fees",
     "next_process_date": "2017-05-24",
     "created_at": "2017-05-16T14:43:22.101-05:00",
-    "updated_at": "2017-05-16T14:43:22.101-05:00",
+    "updated_at": "2017-05-16T14:45:13.101-05:00",
     "financial_transactions": []
   }
 }
@@ -153,51 +141,33 @@ This endpoint updates a transaction schedule for a customer.
 
 ### HTTP Request
 
-`PATCH https://client.rotessa.com/v1/transaction_schedules/<ID>.json`
+`PATCH https://api.rotessa.com/v1/transaction_schedules/<ID>.json`
 
 ### URL Parameters
 
 Parameter | Description
 --------- | -----------
-ID | The ID of the transaction schedule to retrieve
+id | The ID of the transaction schedule to retrieve
+comment | Optional comment for schedule
 
 
 <aside class="success">
-Once a schedule is created, you may only modify the amount, comment and active values.
+Once a schedule is created, you may only modify the amount and comment values.
 </aside>
 
 ## Delete A Specific Transaction Schedule
 
 ```shell
-
-curl -X DELETE -H 'Authorization: Token token=\"your_api_key\"' "http://api.rotessa.dev:3000/v1/transaction_schedules/<ID>.json"
-
-```
-
-> The above command returns JSON structured like this:
-
-```json
-{
-  "response": {
-    "id": "1",
-    "amount": "100.00",
-    "frequency": "Monthly",
-    "process_date": "2017-05-24",
-    "installments": null,
-    "comment": "Membership fees",
-    "next_process_date": "2017-05-24",
-    "created_at": "2017-05-16T14:43:22.101-05:00",
-    "updated_at": "2017-05-16T14:43:22.101-05:00",
-    "financial_transactions": []
-  }
-}
+curl -X DELETE -H "Authorization: Token token=\"<api_key>\"" "<rotessa_endpoint>/transaction_schedules/<id>.json"
 ```
 
 This endpoint deletes a transaction schedule for a customer.
 
+A successfully deleted transaction schedule will return no errors.
+
 ### HTTP Request
 
-`DELETE https://client.rotessa.com/v1/transaction_schedules/<ID>.json`
+`DELETE https://api.rotessa.com/v1/transaction_schedules/<ID>.json`
 
 ### URL Parameters
 
