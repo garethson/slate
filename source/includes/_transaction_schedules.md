@@ -5,7 +5,7 @@ Transaction schedules are the method by which recurring or one time payments are
 Field | Description
 --------- | -----------
 id | ID of the transaction schedule.
-process_date | The initial date to begin withdrawing funds.
+process_date | The initial date to begin withdrawing funds. (e.g. November 20, 2016)
 installments | The number of installments. Leave blank to continue withdrawing funds indefinitely.
 comment | A places to enter notes for the transaction schedule.
 next_process_date | The next date that funds will be withdrawn.
@@ -102,6 +102,7 @@ Parameter | Description
 --------- | -----------
 customer_id | ID of customer
 amount | Amount for schedule
+process_date | The initial date to begin withdrawing funds. (e.g. November 20, 2016)
 frequency | Frequecy of transaction. Must be one of preceding <a href="#schedule-frequency">valid frequecies</a>.
 installments | The number of installments. If value is excluded, schedule is indefinite.
 comment | Optional comment for schedule.
