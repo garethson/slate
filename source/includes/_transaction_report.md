@@ -7,7 +7,7 @@ The endpoint provides 3 parameters which can be queried.
 
 
 ```shell
-curl -X GET -H 'Content-Type: application/json' -H "Authorization: Token token=\"<api_key>\"" -d '{"start_date":"2016-09-12", "end_date":"2016-11-12", "filter":"All"}' <rotessa_endpoint>/transaction_report.json | python -m json.tool 
+curl -X GET -H 'Content-Type: application/json' -H "Authorization: Token token=\"<api_key>\""  "<rotessa_endpoint>/transaction_report.json?start_date=2016-09-12&end_date=2016-11-12&filter=All"
 ```
 
 > The above command returns JSON structured like this:
@@ -74,8 +74,8 @@ curl -X GET -H 'Content-Type: application/json' -H "Authorization: Token token=\
 
 Parameter | Description
 --------- | -------
-start_date | The earliest process date of the list of transactions.
-end_date | The last process date of the list of transactions. Optional
+start_date | The earliest process date (YYYY-MM-DD) of the list of transactions.
+end_date | The last process date (YYYY-MM-DD) of the list of transactions. Optional
 status | Filter by the given financial status of the transactions.
 
 The `status` parameter can be one of the following values.
