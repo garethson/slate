@@ -95,7 +95,7 @@ available | true | If set to false, the result will include kittens that have al
 Remember — a happy customer is an authenticated customer!
 </aside>
 
-## Get a Specific Customer
+## Get a Specific Customer Based on Rotessa ID
 
 ```shell
 curl "<rotessa_endpoint>/customers/<id>" -H "Authorization: Token token=\"<api_key>\""
@@ -164,6 +164,76 @@ This endpoint retrieves a specific customer.
 Parameter | Description
 --------- | -----------
 ID | The ID of the customer to retrieve
+
+## Get a Specific Customer Based on Customer Identifier
+
+```shell
+curl -H 'Content-Type: application/json' -H "Authorization: Token token=\"<api_key>\"" -d '{"custom_identifier": "MikeSmith0001"}' <rotessa_endpoint>/customers/show_with_custom_identifier.json
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "response": {
+    "id": 1,
+    "name": "Mike Smith",
+    "identifier": "MikeSmith0001",
+    "email": "mikesmith@test.com",
+    "home_phone": "(204) 555 5555",
+    "cell_phone": "(204) 555 4444",
+    "bank_name": "Scotiabank",
+    "created_at": "2015-02-10T23:50:45.000-06:00",
+    "updated_at": "2015-02-10T23:50:45.000-06:00",
+    "custom_identifier": "Mikey",
+    "active": true,
+    "address": {
+      "address_1": "123 Main Street",
+      "address_2": "Unit 4",
+      "city": "Toronto",
+      "province_code": "ON",
+      "postal_code": "M1B 0B7"
+    }
+    "transaction_schedules": [
+      {
+        "amount": "120.00",
+        "frequency": "Weekly",
+        "process_date": "2015-05-12",
+        "installments": 10,
+        "comment": "Monthly Membership Fees",
+        "next_process_date": "2015-05-19",
+        "created_at": "2015-05-12T23:02:08.000-05:00",
+        "updated_at": "2015-05-12T23:04:00.000-05:00"
+      }
+    ],
+    "financial_transactions": [
+      {
+        "amount": "120.00",
+        "process_date": "2015-05-12",
+        "status": "Pending",
+        "status_reason": null,
+        "transaction_schedule_id": 33630,
+        "created_at": "2015-05-12T23:04:00.000-05:00",
+        "updated_at": "2015-05-12T23:04:00.000-05:00"
+      }
+    ]
+  }
+}
+```
+
+This endpoint retrieves a specific customer based on a pre-assigned custom_identifier.
+
+<aside class="warning">If you're not using an administrator API key, note that some customers will return 403 Forbidden if they are hidden for admins only.</aside>
+
+### HTTP Request
+
+`GET https://api.rotessa.com/v1/customers/show_with_custom_identifier.json`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+custom_identifier | Your own unique customer identifier.
 
 ## Create A Customer
 

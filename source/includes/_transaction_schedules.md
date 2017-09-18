@@ -56,7 +56,7 @@ This endpoint creates a transaction schedule for a customer.
 
 ### HTTP Request
 
-`GET https://api.rotessa.com/v1//customers/<ID>.json
+`GET https://api.rotessa.com/v1/transaction_schedules/<ID>.json
 `
 
 ### URL Parameters
@@ -66,10 +66,10 @@ Parameter | Description
 ID | The ID of the transaction schedule to retrieve
 
 
-## Create A Transaction Schedule
+## Create A Transaction Schedule with Rotessa Customer ID
 
 ```shell
-curl -X POST -H 'Content-Type: application/json' -H "Authorization: Token token=\"<api_key>\""  -d '{"customer_id":45079, "amount": 100, "frequency": "Monthly", "process_date": "November 24, 2017", "comment": "Membership fees"}' <rotessa_endpoint>/transaction_schedules.json
+curl -X POST -H 'Content-Type: application/json' -H "Authorization: Token token=\"<api_key>\""  -d '{"id":45079, "amount": 100, "frequency": "Monthly", "process_date": "November 24, 2017", "comment": "Membership fees"}' <rotessa_endpoint>/transaction_schedules.json
 ```
 
 > The above command returns JSON structured like this:
@@ -77,6 +77,7 @@ curl -X POST -H 'Content-Type: application/json' -H "Authorization: Token token=
 ```json
 {
   "response": {
+    "id": "1",
     "amount": "100.00",
     "frequency": "Monthly",
     "process_date": "2017-11-24",
@@ -101,6 +102,70 @@ This endpoint creates a transaction schedule for a customer.
 Parameter | Description
 --------- | -----------
 customer_id | ID of customer
+amount | Amount for schedule
+process_date | The initial date to begin withdrawing funds. (e.g. November 20, 2016)
+frequency | Frequecy of transaction. Must be one of preceding <a href="#schedule-frequency">valid frequecies</a>.
+installments | The number of installments. If value is excluded, schedule is indefinite.
+comment | Optional comment for schedule.
+
+
+<aside class="success">
+When creating schedules you must specify a process date of at least 2 business days in the future.
+</aside>
+
+This endpoint creates a transaction schedule for a customer.
+
+### HTTP Request
+
+`GET https://api.rotessa.com/v1/transaction_schedules/<ID>.json
+`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+ID | The ID of the transaction schedule to retrieve
+
+
+## Create A Transaction Schedule with Custom Identifier
+
+```shell
+
+curl -XPOST -H 'Content-Type: application/json' -H "Authorization: Token token=\"<api_key>\""  -d '{"custom_identifier":"MikeSmith0001", amount": 100, "frequency": "Monthly", "process_date": "November 24, 2017", "comment": "Membership fees"}' <rotessa_endpoint>/v1/transaction_schedules/create_with_custom_identifier.json
+
+
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "response": {
+    "id": "1",
+    "amount": "100.00",
+    "frequency": "Monthly",
+    "process_date": "2017-11-24",
+    "installments": null,
+    "comment": "Membership fees",
+    "next_process_date": "2015-05-24",
+    "created_at": "2015-05-16T14:43:22.101-05:00",
+    "updated_at": "2015-05-16T14:43:22.101-05:00",
+    "financial_transactions": []
+  }
+}
+```
+
+This endpoint creates a transaction schedule for a customer.
+
+### HTTP Request
+
+`POST https://api.rotessa.com/v1/transaction_schedules`
+
+### Post Parameters
+
+Parameter | Description
+--------- | -----------
+custom_identifier | Your own unique custom identifier for the customer
 amount | Amount for schedule
 process_date | The initial date to begin withdrawing funds. (e.g. November 20, 2016)
 frequency | Frequecy of transaction. Must be one of preceding <a href="#schedule-frequency">valid frequecies</a>.

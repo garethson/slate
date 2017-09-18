@@ -3,7 +3,7 @@
 The transaction report endpoint is the main interface by which your system can determine the current state of payments processed by Rotessa. The transaction report is limited to transcations 3 years into the futre or 1000 transactions, whichever comes first.
 
 ## Show Transaction Report
-The endpoint provides 3 parameters which can be queried.
+The endpoint provides 4 parameters which can be queried.
 
 
 ```shell
@@ -77,6 +77,7 @@ Parameter | Description
 start_date | The earliest process date (YYYY-MM-DD) of the list of transactions.
 end_date | The last process date (YYYY-MM-DD) of the list of transactions. Optional
 status | Filter by the given financial status of the transactions.
+page | Page selected based on 1000 transactions per page
 
 The `status` parameter can be one of the following values.
 
