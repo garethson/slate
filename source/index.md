@@ -5,7 +5,7 @@ language_tabs:
   - shell
 
 toc_footers:
-  - <a href='https://client.rotessa.com/signups/signup', target=_blank>Sign Up to acquire a developer key.</a>
+  - <a href='https://client.rotessa.com/signup', target=_blank>Sign up to acquire a developer key.</a>
 
 includes:
   - customers
