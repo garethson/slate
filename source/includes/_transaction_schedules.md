@@ -95,7 +95,7 @@ This endpoint creates a transaction schedule for a customer.
 
 ### HTTP Request
 
-`POST https://api.rotessa.com/v1/transaction_schedules`
+`POST https://api.rotessa.com/v1/transaction_schedules.json`
 
 ### Post Parameters
 
@@ -159,7 +159,7 @@ This endpoint creates a transaction schedule for a customer.
 
 ### HTTP Request
 
-`POST https://api.rotessa.com/v1/transaction_schedules`
+`POST https://api.rotessa.com/v1/transaction_schedules/create_with_custom_identifier.json`
 
 ### Post Parameters
 
